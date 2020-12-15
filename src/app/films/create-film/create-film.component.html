@@ -1,0 +1,58 @@
+<div>
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ 'addFilm' | translate }}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+           
+            <div class="example-container">
+                <mat-form-field>
+                    <mat-label>{{ 'title' | translate }}</mat-label>
+                    <input type="text" class="form-control" matInput [(ngModel)]="titre">
+                </mat-form-field>
+            </div>
+
+            <div class="example-container">
+                <mat-form-field>
+                    <mat-label>{{ 'duration' | translate }}</mat-label>
+                    <input type="number" class="form-control" matInput name="{{ 'duration' | translate }}" [(ngModel)]="duration">
+                </mat-form-field>
+            </div>
+            <div class="example-container">
+                <p class="mat-subheading-3">
+                    {{ 'director' | translate }}
+                </p>
+                  <mat-form-field appearance="fill">
+                        <mat-label>{{ 'option' | translate }}</mat-label>
+                        <mat-select [(value)]="realisateur">
+                            <mat-option *ngFor="let real of realisateurs" [value]="real.id">{{real.appelation}}</mat-option>
+                        </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="example-container">
+                <p class="mat-subheading-3">
+                    {{ 'genre' | translate }}
+                </p>
+                  <mat-form-field appearance="fill">
+                        <mat-label>{{ 'option' | translate }}</mat-label>
+                        <mat-select [(value)]="genre">
+                            <mat-option *ngFor="let elt of genres" [value]="elt.id">{{elt.nom}}</mat-option>
+                        </mat-select>
+                </mat-form-field>
+            </div>
+       
+            
+            <div class="example-flex-container">
+                <div class="example-button-container">
+                  <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="createFilm()">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+            </div>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

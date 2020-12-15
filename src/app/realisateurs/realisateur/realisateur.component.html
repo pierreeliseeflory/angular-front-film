@@ -1,0 +1,56 @@
+<mat-card-content *ngIf='realisateur!==undefined' class="content">
+    <span class="mat-display-2">
+        {{ realisateur.prenom }} {{ realisateur.nom }}
+    </span>
+    <div class="mat-body-1 wrapper">
+        {{ 'birthday' | translate}}: {{ realisateur.dateNaissance | date }}
+    </div>
+
+    <div>
+        <mat-accordion class="wrapper">
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ 'modifyDirector' | translate }}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="example-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ 'forename' | translate }}</mat-label>
+                        <input matInput type="text" [(ngModel)]="prenom">
+                    </mat-form-field>
+                </div>
+        
+                <div class="example-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ 'lastname' | translate }}</mat-label>
+                        <input matInput type="text" [(ngModel)]="nom">
+                    </mat-form-field>
+                </div>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'birthday' | translate }}</mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="dateNaissance">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+        
+                <div class="example-flex-container">
+                    <div class="example-button-container">
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="update()">
+                        <span class="material-icons">
+                            create
+                        </span>
+                    </button>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+    <div class="example-button-container add">
+        <button mat-fab color="warn" aria-label="Example icon button with a delete icon"(click)="delete()">
+          <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</mat-card-content>

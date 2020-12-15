@@ -1,0 +1,14 @@
+.content {
+    margin-left: 5%;
+    margin-top: 5%;
+    display: inline-block;
+    width: 90%;
+}
+
+.add {
+    padding: 5%;
+}
+
+.wrapper {
+    padding: 5%;
+}

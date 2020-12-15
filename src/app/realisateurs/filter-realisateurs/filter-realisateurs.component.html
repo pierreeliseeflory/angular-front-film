@@ -1,0 +1,17 @@
+<div class="content">
+    <mat-card-title>
+      {{ 'filterDirectors' | translate }}
+  </mat-card-title>
+  
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>{{ 'name' | translate }}</mat-label>
+        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.titre}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>

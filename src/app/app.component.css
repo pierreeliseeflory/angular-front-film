@@ -1,0 +1,45 @@
+.navbar {
+    justify-content: space-between;
+}
+
+span {
+    padding-right: 1rem;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.active-link {
+    color: darkgrey;
+}
+
+.material-icons {
+    vertical-align: middle;
+}
+
+.footer {
+    text-align: center;
+    margin: auto;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100%;
+}
+
+#content-wrapper {
+    margin-bottom: 2.5rem;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+
+mat-select {
+    width: 50px;
+}

@@ -1,0 +1,71 @@
+<mat-card-content *ngIf='film!==undefined' class="content">
+    <span class="mat-display-2">
+        {{ film.titre }}
+    </span>
+    <div class="mat-body-1 wrapper">
+        <p>{{'director' | translate }}: <a routerLink="/realisateur" [queryParams]="{id: film.realisateur}">
+            {{ film.realisateur_nom }}
+        </a></p>
+        <p>
+            {{'duration' | translate }}: {{ film.duration }} minutes  
+        </p>
+        <p>
+            {{'genre' | translate }}: {{ film.genre_nom }}  
+        </p>
+    </div>
+
+    <div>
+        <mat-accordion class="wrapper">
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ 'modifyFilm' | translate }}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+               
+                <div class="example-container">
+                    <mat-form-field>
+                        <mat-label>Titre</mat-label>
+                        <input type="text" class="form-control" matInput [(ngModel)]="titre">
+                    </mat-form-field>
+                </div>
+                <mat-form-field>
+                    <mat-label>{{ 'duration' | translate }}</mat-label>
+                    <input type="number" class="form-control" matInput name="{{ 'duration' | translate }}" [(ngModel)]="duration">
+                </mat-form-field>
+
+                  <div class="mat-subheading-1">{{ 'director' | translate }}</div>
+                  <mat-form-field appearance="fill">
+                      <mat-label>Choose an option</mat-label>
+                      <mat-select [(value)]="realisateur">
+                          <mat-option *ngFor="let real of realisateurs" [value]="real.id">{{real.appelation}}</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+
+                  <div class="mat-subheading-1">{{ 'genre' | translate }}</div>
+                  <mat-form-field appearance="fill">
+                      <mat-label>Choose an option</mat-label>
+                      <mat-select [(value)]="genre">
+                          <mat-option *ngFor="let elt of genres" [value]="elt.id">{{elt.nom}}</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+           
+                
+                <div class="example-flex-container">
+                    <div class="example-button-container">
+                      <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="updateFilm()">
+                        <mat-icon>create</mat-icon>
+                      </button>
+                    </div>
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+    <div class="example-button-container add">
+        <button mat-fab color="warn" aria-label="Example icon button with a delete icon"(click)="delete()">
+          <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</mat-card-content>

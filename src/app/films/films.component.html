@@ -1,0 +1,74 @@
+<div class="content">
+    <mat-card-title>
+        {{ 'listFilms' | translate }}
+    </mat-card-title>
+
+    <br>
+
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Matrix" #input>
+      </mat-form-field>
+      
+      <div class="example-container mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef><button mat-button (click)="this.sorting('id')">id</button> </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="title">
+              <th mat-header-cell *matHeaderCellDef><button mat-button (click)="this.sorting('titre')">{{ "title" | translate }}</button> </th>
+              <td mat-cell *matCellDef="let element">
+                  <a class="mat-h1" routerLink="/film" [queryParams]="{id: element.id}">
+                      {{ element.titre }}
+                  </a>
+              </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="duration">
+              <th mat-header-cell *matHeaderCellDef><button mat-button (click)="this.sorting('duration')">{{ "duration" | translate }}</button> </th>
+              <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="director">
+              <th mat-header-cell *matHeaderCellDef> <button mat-button>{{ "director" | translate }}</button> </th>
+              <td mat-cell *matCellDef="let element"> 
+                <a class="mat-h1" routerLink="/realisateur" [queryParams]="{id: element.realisateur}">
+                  {{element.realisateur_nom}} 
+              </a>
+              </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="genre">
+              <th mat-header-cell *matHeaderCellDef><button mat-button (click)="this.sorting('genre')">{{ "genre" | translate }}</button> </th>
+              <td mat-cell *matCellDef="let element"> {{element.genre_nom}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+      </table>
+
+
+      <mat-paginator [length]="length"
+                  [pageSize]="pageSize"
+                  [pageSizeOptions]="[5, 10, 25, 100]"
+                  [pageIndex]="pageIndex"
+                  (page)="pageEvent = updatePaginator($event)"
+                  >
+      </mat-paginator>
+    </div>
+
+    <app-filter-films></app-filter-films>
+
+    <app-create-film></app-create-film>
+</div> 

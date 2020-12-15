@@ -1,0 +1,38 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle #panel [ngClass]="{'opened': panel.expanded}">
+        <mat-expansion-panel-header>
+            <mat-panel-title >
+                {{ 'addDirector' | translate }}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'forename' | translate }}</mat-label>
+                <input matInput type="text" [(ngModel)]="prenom">
+            </mat-form-field>
+        </div>
+
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'lastname' | translate }}</mat-label>
+                <input matInput type="text" [(ngModel)]="nom">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'birthday' | translate }}</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="dateNaissance">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="example-flex-container">
+            <div class="example-button-container">
+            <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="post()">
+                <mat-icon>add</mat-icon>
+            </button>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

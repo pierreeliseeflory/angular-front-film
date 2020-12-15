@@ -1,0 +1,37 @@
+<div id="page-container">
+    
+    <mat-toolbar class="navbar" color="primary">
+        <div>{{ 'website' | translate }}</div>
+        <div>
+            <span>
+                <mat-select [value]="translate.currentLang" class="lang" #langSelect (selectionChange)="changeLang(langSelect.value)">
+                    <mat-option 
+                    *ngFor="let lang of translate.getLangs()" 
+                    [value]="lang"
+                    >
+                        {{ lang }}
+                    </mat-option>
+                </mat-select>
+            </span>
+            <span><a routerLink="/film/all" routerLinkActive="active-link">
+                Films <span class="material-icons">theaters</span>
+            </a></span>
+            <span><a routerLink="/realisateur/all" routerLinkActive="active-link">
+                {{ 'directors' | translate }} <span class="material-icons">person</span>
+            </a></span>
+        </div>
+    </mat-toolbar>
+
+    <mat-card-content id="content-wrapper">
+        <router-outlet></router-outlet>
+    </mat-card-content>
+    
+    <mat-toolbar id="footer" color="primary">
+        <div class="mat-body-1 footer">
+            {{ 'website' | translate }}&trade; Version 1.0
+        </div>
+        <div class="mat-body-1 footer">
+            Powered by me ! (and Angular, and SpringBoot...)
+        </div>
+    </mat-toolbar>  
+</div>
