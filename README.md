@@ -2,26 +2,50 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
+On utilise le framework Angular Material avec le thème par défaut.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`ng serve` ou `npm start` pour lancer le projet puis http://localhost:4200/
 
-## Code scaffolding
+## Contenu
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Composants
 
-## Build
+* films
+  * create-film (formulaire de création)
+  * delete-dialog-film (popup d'avertissement)
+  * film (détails)
+  * filter-films (fonction de recherche sur une liste simplifiée de films)
+  * films (liste des films)
+* realisateur
+  * create-realisateur (formulaire de création)
+  * delete-dialog (popup d'avertissement)
+  * filter-realisateurs (fonction de recherche sur une liste simplifiée de réalisateurs)
+  * realisateur (détails)
+  * realisateurs (liste des réalisateurs)
+* page d'erreur 404
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Modèles
 
-## Running unit tests
+* film
+* realisateur
+* genre
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Services
 
-## Running end-to-end tests
+* film
+* realisateur
+* genre
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Traduction
 
-## Further help
+* fr
+* en
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Fonctionnalités
+
+* Fonction de pagination, tri et filtrage sur les films
+* Fonction de pagination sur les réalisateurs
+* Fonction de recherche poussée sur les films et les réalisateurs
+* Signalement de page introuvable avec une erreur 404
